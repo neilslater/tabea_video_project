@@ -4,8 +4,8 @@ import numpy as np
 import PIL.Image
 import tensorflow as tf
 
-in_name = 'nfrac_1400x840.jpg'
-out_name = 'start_frame_1400x840.jpeg'
+in_name = 'images/nfrac_1400x840.jpg'
+out_name = 'images/start_frame_1400x840.jpeg'
 
 img0 = PIL.Image.open(in_name)
 img0 = np.float32(img0)

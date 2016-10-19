@@ -81,10 +81,10 @@ targets = [
 
     'mixed4b_3x3_bottleneck_pre_relu', 68, # fur
 
-    'mixed5a_3x3_bottleneck_pre_relu', 10, # Necklace
+    'mixed5a_3x3_bottleneck_pre_relu', 3, # Lattice with gems
 
-    'mixed5a_3x3_bottleneck_pre_relu', 10, # Necklace
-    'mixed5a_3x3_bottleneck_pre_relu', 10, # Necklace
+    'mixed5a_3x3_bottleneck_pre_relu', 3, # Lattice with gems
+    'mixed5a_3x3_bottleneck_pre_relu', 3, # Lattice with gems
 ]
 
 circle_masks = []

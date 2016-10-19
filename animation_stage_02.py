@@ -24,15 +24,15 @@ import math
 # Each entry corresponds to 240 frames = 8 seconds of video
 targets = [
     # Previous
-    'mixed5a_3x3_bottleneck_pre_relu', 10, # Necklace
-    'mixed5a_3x3_bottleneck_pre_relu', 10, # Necklace
-    'mixed5a_3x3_bottleneck_pre_relu', 10, # Necklace
-    'mixed5a_3x3_bottleneck_pre_relu', 10, # Necklace
+    'mixed5a_3x3_bottleneck_pre_relu', 3, # Lattice with gems ++
+    'mixed5a_3x3_bottleneck_pre_relu', 3, # Lattice with gems ++
+    'mixed5a_3x3_bottleneck_pre_relu', 3, # Lattice with gems ++
+    'mixed5a_3x3_bottleneck_pre_relu', 3, # Lattice with gems ++
 
     # Quieter bit
     'mixed5a_3x3_bottleneck_pre_relu', 3, # Lattice with gems ++
     'head1_bottleneck_pre_relu', 62, # Ocean pattern ++
-    'head0_bottleneck_pre_relu', 116, # Pointy
+    'head0_bottleneck_pre_relu', 116, # Pointy ++
     'mixed4b_3x3_bottleneck_pre_relu', 28, # fuzzy links ++
 
     # Added bass drums
@@ -42,7 +42,6 @@ targets = [
     'head0_bottleneck_pre_relu', 67, # Crystal wings ++
 
     # Louder bit
-    # Was: 'mixed4b_3x3_bottleneck_pre_relu', 33, # writhing ++
     'head0_bottleneck_pre_relu', 84, # Garden ruins
     'mixed4b_3x3_bottleneck_pre_relu', 110, # patterned ++
     'mixed5a_3x3_bottleneck_pre_relu', 76, # structured swirls ++

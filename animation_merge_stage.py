@@ -36,7 +36,7 @@ if not os.path.exists(directory):
 # than a simple fade, and takes many hours to run. However, it *does* actually look better. I think
 # a longer overlap period may of looked even better, and/or some different choices of texture to
 # use on the overlapped section
-merge_end_percents = [100, 98, 96, 92, 84, 68, 0]
+merge_end_percents = [100, 98, 96, 92, 84, 68, 50, 0]
 fwd_zoom = 0.997
 fwd_rot = 0.2
 back_zoom = 1.0/0.997
@@ -45,6 +45,9 @@ back_rot = -0.2
 margin = 60
 
 def target_for_fno( fno ):
+    return tf.reduce_mean( tfi.T('mixed5a_3x3_bottleneck_pre_relu')[:,:,:,3] )
+
+def old_target_for_fno( fno ):
     layer = 'mixed5a_3x3_bottleneck_pre_relu'
     channel_1 = 10
     channel_2 = 3
@@ -56,13 +59,13 @@ def target_for_fno( fno ):
         target = tf.reduce_mean( tfi.T(layer)[:,:,:,channel_2] )
     return target
 
-def fwd_mix_ratio( fno, end_ratio ):
+def fwd_mix_ratio( fno, start_ratio, end_ratio ):
     r = ( (fno - start_frame)/float(end_frame-start_frame) )
-    return ( 1 - r ) + r * end_ratio
+    return ( 1 - r ) * start_ratio + r * end_ratio
 
-def back_mix_ratio( fno, end_ratio ):
+def back_mix_ratio( fno, start_ratio, end_ratio ):
     r = 1.0 - ( (fno - start_frame)/float(end_frame-start_frame) )
-    return ( 1 - r ) + r * end_ratio
+    return ( 1 - r ) * start_ratio + r * end_ratio
 
 def process_image_step( current_img, zoom, rot, mix_ratio, mix_img, target ):
     current_img = tfi.affine_zoom( current_img, zoom, rot )
@@ -102,6 +105,7 @@ for merge_end_id in range( len(merge_end_percents) -1 ):
     prev_end_pct = merge_end_percents[merge_end_id]
     this_end_pct = merge_end_percents[merge_end_id+1]
     end_ratio = this_end_pct/100.0
+    start_ratio = 1.0 - 0.01 * end_ratio # That's right, varies from 1.0 to 0.99
 
     # Forward - always start from original reference
     current_img = load_reference_img( 'fwd', 100, start_frame )
@@ -112,7 +116,7 @@ for merge_end_id in range( len(merge_end_percents) -1 ):
     for frame in range(end_frame-start_frame):
         fno = start_frame + frame + 1
         mix_img = load_reference_img( 'back', prev_end_pct, fno )
-        mix_ratio = fwd_mix_ratio( fno, end_ratio )
+        mix_ratio = fwd_mix_ratio( fno, start_ratio, end_ratio )
         target = target_for_fno( fno )
 
         print('Merge 01 & 02, {} pass {}, frame {}, mix ratio {}'.format('fwd', pass_id, fno, mix_ratio))
