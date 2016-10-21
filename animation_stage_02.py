@@ -76,7 +76,7 @@ targets = [
 channel_step = 240 # 16 targets
 start_frame = 960
 end_frame = 4800
-nframes = end_frame - start_frame
+nframes = end_frame - start_frame - 1 # We don't produce actual frame 960 in the overlap section
 margin = 60 # This hides rotation artefacts in the corners
 
 directory = 'animation_stage_02'

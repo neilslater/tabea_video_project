@@ -10,6 +10,12 @@ code and hack around with hard-coded values and ad-hoc scattered logic. The most
 is in the `tfi.py` module, but I have scattered animation choices liberally around the other scripts
 to get things done whichever way made sense at the time.
 
+## Output
+
+It takes 2-3 days to render this video on my laptop:
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/xuB0dVkFNTs" frameborder="0" allowfullscreen></iframe>
+
 ## Pre-requisites
 
 Python 3.5 with numpy, tensorflow, skimage.

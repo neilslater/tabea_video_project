@@ -105,7 +105,7 @@ for merge_end_id in range( len(merge_end_percents) -1 ):
     prev_end_pct = merge_end_percents[merge_end_id]
     this_end_pct = merge_end_percents[merge_end_id+1]
     end_ratio = this_end_pct/100.0
-    start_ratio = 1.0 - 0.01 * end_ratio # That's right, varies from 1.0 to 0.99
+    start_ratio = 1.0 - 0.01 * (1.0 - end_ratio) # Varies from 1.0 to 0.99
 
     # Forward - always start from original reference
     current_img = load_reference_img( 'fwd', 100, start_frame )
@@ -138,7 +138,7 @@ for merge_end_id in range( len(merge_end_percents) -1 ):
     for frame in range(end_frame-start_frame):
         fno = end_frame - frame
         mix_img = load_reference_img( 'fwd', prev_end_pct, fno )
-        mix_ratio = back_mix_ratio( fno, end_ratio )
+        mix_ratio = back_mix_ratio( fno, start_ratio, end_ratio )
         target = target_for_fno( fno )
 
         print('Merge 01 & 02, {} pass {}, frame {}, mix ratio {}'.format('back', pass_id, fno, mix_ratio))
