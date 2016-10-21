@@ -14,7 +14,7 @@ to get things done whichever way made sense at the time.
 
 It takes 2-3 days to render this video on my laptop:
 
-[![Tabea video](http://img.youtube.com/vi/xuB0dVkFNTs/0.jpg)](http://www.youtube.com/watch?v=xuB0dVkFNTs "Tabea")
+[![Tabea video](http://img.youtube.com/vi/nFdp2cPYP2s/0.jpg)](http://www.youtube.com/watch?v=nFdp2cPYP2s "Tabea")
 
 ## Pre-requisites
 
