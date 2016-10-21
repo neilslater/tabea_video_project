@@ -14,7 +14,7 @@ to get things done whichever way made sense at the time.
 
 It takes 2-3 days to render this video on my laptop:
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/xuB0dVkFNTs" frameborder="0" allowfullscreen></iframe>
+[![Tabea video](http://img.youtube.com/vi/xuB0dVkFNTs/0.jpg)](http://www.youtube.com/watch?v=xuB0dVkFNTs "Tabea")
 
 ## Pre-requisites
 
