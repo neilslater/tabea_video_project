@@ -14,14 +14,14 @@ to get things done whichever way made sense at the time.
 
 It takes 2-3 days to render this video on my laptop:
 
-[![Tabea video](http://img.youtube.com/vi/nFdp2cPYP2s/0.jpg)](http://www.youtube.com/watch?v=nFdp2cPYP2s "Tabea")
+[![Tabea video](http://img.youtube.com/vi/RD9uc2u557w/0.jpg)](http://www.youtube.com/watch?v=RD9uc2u557w "Tabea")
 
 ## Pre-requisites
 
 Python 3.5 with numpy, tensorflow, skimage.
 
-To use the video builder shell script, FFMPEG version 2.7 or highers. Or you could use any other
-video editor that can work froma collection of still frames.
+To use the video builder shell script, FFMPEG version 2.7 or higher. Or you could use any other
+tool that can build a video from a collection of still frames.
 
 From http://freemusicarchive.org/music/Ars_Sonor/Raoul_Wallenbergs_Fantastiska_Resa_Genom_Gteborg/05-Tabea
 
@@ -94,6 +94,12 @@ a 30-frames-per-second video, combined with music track, using ffmpeg:
 
 ```bash
 ./make_tabea_video.sh
+```
+
+Or you could run the YouTube compatible version, with slightly different settings:
+
+```bash
+./make_tabea_video_youtube.sh
 ```
 
 ### License
